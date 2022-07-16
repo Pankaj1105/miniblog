@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}  <!-- 2] we are using static file then it is mandtory to load static before using it -->
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+ <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> <!--3] we have to write this in same odour -->
+ <title>Document</title>
+</head>
+<body>
+ <div class="container-fluid bg-dark"> <!-- 5 --> 
+  {% include 'blog/navbar.html' %} <!-- 5] in this file html file all the code will transfer here -->
+ </div>
+ <div class="container"> <!-- 6]Making Block for every project -->
+  <div class="row">
+   <div class="col-sm-12">
+    {% block msg %} <!-- 6] making block for messges all the messages will come here -->
+    {% endblock msg %}
+   </div>
+  </div>
+
+  <div class="row">
+   {% block side %}
+   {% endblock side %} <!--7] we will see (side)profile  -->
+
+   {% block content %} <!--7] we will see main content here (go to home.html) -->
+   {% endblock content %}
+  </div>
+ </div>
+
+ <script src="{% static 'blog/js/jquery.js' %}"></script> <!-- 4] including of javascript files -->
+ <script src="{% static 'blog/js/popper.js' %}"></script>
+ <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+</body>
+</html>
+
+<!--1] The code which is common for full project that i am keeping in base.html  -->

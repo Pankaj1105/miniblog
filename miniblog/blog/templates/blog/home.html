@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %} <!--8] here we are extendind the base.html all we will get here,or it will override something from base.html for example msg block which we dont want in our home page/we also dont want side block -->
+{% load static %}
+{% block content %}
+
+<div class="col-sm-10"> <!-- 8] here we want 10 columns and we are converting the the previous rows in columns-->
+ <h3 class="text-white my-5">Home Page</h3> <!-- for top and bottoom -->
+  {% for post in posts %}
+    <div class="jumbotron jumbotron-fluid jumbo-color">  <!--10] we are taking jumbotron from bootstrap (do about)write views -->
+      <div class="container">
+        <h1 class="display-4 font-weight-bold">{{post.title}}</h1>
+        <p class="lead">{{post.desc}}</p>
+      </div>
+    </div>
+  {% endfor %}
+
+</div>
+
+{% endblock content %}
+
+<!-- After making ecery page go to views  for rendering then go to Url  -->
